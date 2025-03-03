@@ -1,31 +1,38 @@
 import React from'react';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import './App.css';
-import Blog from './componentes/Blog';
-import Carrito from './componentes/Carrito';
-import Inicio from './componentes/Inicio';
-import Productos from './componentes/Productos';
-import Tienda from './componentes/Tienda';
+import { NavLink, Routes, Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from '../reducers/tiendaReducer';
+import Blog from './Blog';
+import Carrito from './Carrito';
+import Inicio from './Inicio';
+import Productos from './Productos';
+import Tienda from './Tienda';
+import Error404 from './Error404';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={createStore(reducer)}>
+      <div id="contenedor">
+          <div id="menu">
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/tienda">Tienda</NavLink>
+          </div>
+          <main>
+            <Routes>
+              <Route path="*" element={<Error404/>} />
+              <Route path="/" element={<Inicio/>} />
+              <Route path="/blog" element={<Blog/>} />
+              <Route path="/tienda" element={<Tienda/>}/>
+            </Routes>
+          </main>
+        <aside>
+            <Carrito/>
+          </aside> 
+      </div>
+    </Provider>
   );
 }
 
