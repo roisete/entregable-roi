@@ -1,5 +1,12 @@
-import logo from './logo.svg';
+import React from'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
+import Blog from './componentes/Blog';
+import Carrito from './componentes/Carrito';
+import Inicio from './componentes/Inicio';
+import Productos from './componentes/Productos';
+import Tienda from './componentes/Tienda';
+
 
 function App() {
   return (
