@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     }
 };
 
-const Carrito = () => {
+const Carrito = ({carrito}) => {
     return ( 
         <div>
             <h3>Carrito</h3>

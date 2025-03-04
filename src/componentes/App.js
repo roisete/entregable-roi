@@ -2,11 +2,10 @@ import React from'react';
 import { NavLink, Routes, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducer from '../reducers/tiendaReducer';
+import reducer from './tiendaReducer';
 import Blog from './Blog';
 import Carrito from './Carrito';
 import Inicio from './Inicio';
-import Productos from './Productos';
 import Tienda from './Tienda';
 import Error404 from './Error404';
 
