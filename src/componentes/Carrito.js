@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 const Carrito = ({carrito}) => {
     return ( 
         <div>
-            <h3>Carrito</h3>
+            <h3 className='h3Carrito'>Carrito</h3>
             { carrito.length > 0 ?
                 carrito.map((producto, index) => {
                     return (

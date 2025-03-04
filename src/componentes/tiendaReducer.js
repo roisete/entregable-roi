@@ -3,6 +3,7 @@ const initialState = {
         { id: 1, nombre: 'Producto 1' },
         { id: 2, nombre: 'Producto 2' },
         { id: 3, nombre: 'Producto 3' },
+        { id: 4, nombre: 'Producto 4' },
     ],
     carrito: []
 };
@@ -34,6 +35,9 @@ const reducer = (state = initialState, action) => {
                 else {
                     newCarrito.push({ id: idProducto, nombre: nombre, cantidad: 1 }); // Nuevo producto añadido si no está y hay otros productos en el carrito
                 }
+
+                newCarrito.sort((a, b) => a.id - b.id); // Ordena los prodcutos en el carrito
+                
                 return {
                    ...state,
                     carrito: newCarrito

@@ -20,16 +20,19 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const Productos = ({productos, addProductos}) => {
-    return ( 
-        <div>
-            <h3>Productos</h3>
+    return (
+        //Evitar errores encapsulando todo en <>
+        <>
+        <h3 className='h3Producto'>Productos</h3>
+        <div className='contenedorProductos'>
             {productos.map( producto => (
                 <div className='producto' key={producto.id}>
                     <p>{producto.nombre}</p>
-                    <button onClick={() => addProductos(producto.id, producto.nombre)}>Agregar al carrito</button>
+                    <button className='boton' onClick={() => addProductos(producto.id, producto.nombre)}>Agregar al carrito</button>
                 </div>
             ))}
         </div>
+        </>
      );
 }
  
